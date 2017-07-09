@@ -11,7 +11,7 @@ Clone repo `git clone https://github.com/mtchavez/common-pw`
 
 #### Large Datasets
 
-Download the data from the [probably word list][pwl] repository and place
+Download the data from the [probable word list][pwl] repository and place
 in the data directory. Currently `Top32Million-probable.txt` is not in version
 control because of size.
 
