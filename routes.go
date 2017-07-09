@@ -7,6 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// ValidateForm to deserialize POST /validate form
 type ValidateForm struct {
 	Password string `form:"password" json:"password" binding:"required"`
 }
@@ -34,5 +35,6 @@ func validatePOST(c *gin.Context) {
 		"top196":  html.EscapeString(fmt.Sprintf("%v", filters.top196.Lookup([]byte(json.Password)))),
 		"top3575": html.EscapeString(fmt.Sprintf("%v", filters.top3575.Lookup([]byte(json.Password)))),
 		"top95k":  html.EscapeString(fmt.Sprintf("%v", filters.top95k.Lookup([]byte(json.Password)))),
+		"top32m":  html.EscapeString(fmt.Sprintf("%v", filters.top32m.Lookup([]byte(json.Password)))),
 	})
 }
