@@ -1,10 +1,11 @@
-package main
+package server
 
 import (
 	"fmt"
 	"html"
 
 	"github.com/gin-gonic/gin"
+	"github.com/mtchavez/common-pw/filters"
 )
 
 // ValidateForm to deserialize POST /validate form
@@ -32,9 +33,9 @@ func validatePOST(c *gin.Context) {
 
 	c.JSON(200, gin.H{
 		"status":  "OK",
-		"top196":  html.EscapeString(fmt.Sprintf("%v", filters.top196.Lookup([]byte(json.Password)))),
-		"top3575": html.EscapeString(fmt.Sprintf("%v", filters.top3575.Lookup([]byte(json.Password)))),
-		"top95k":  html.EscapeString(fmt.Sprintf("%v", filters.top95k.Lookup([]byte(json.Password)))),
-		"top32m":  html.EscapeString(fmt.Sprintf("%v", filters.top32m.Lookup([]byte(json.Password)))),
+		"top196":  html.EscapeString(fmt.Sprintf("%v", filters.PWFilters.Top196.Lookup([]byte(json.Password)))),
+		"top3575": html.EscapeString(fmt.Sprintf("%v", filters.PWFilters.Top3575.Lookup([]byte(json.Password)))),
+		"top95k":  html.EscapeString(fmt.Sprintf("%v", filters.PWFilters.Top95k.Lookup([]byte(json.Password)))),
+		"top32m":  html.EscapeString(fmt.Sprintf("%v", filters.PWFilters.Top32m.Lookup([]byte(json.Password)))),
 	})
 }

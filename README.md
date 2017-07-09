@@ -17,7 +17,9 @@ control because of size.
 
 ### Server
 
-Run the server on port 3000 with `go run *.go`
+Run the server on port 3000 with `go run main.go`. The password filters will
+build in the background and can take ~20 seconds to build. The time it took to
+build will be logged out.
 
 ### Checking Passwords
 

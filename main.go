@@ -1,18 +1,14 @@
 package main
 
-import "runtime"
+import (
+	"runtime"
+
+	"github.com/mtchavez/common-pw/filters"
+	"github.com/mtchavez/common-pw/server"
+)
 
 func main() {
 	runtime.GOMAXPROCS(runtime.NumCPU())
-	buildFilters()
-	startServer()
-}
-
-func buildFilters() {
-	createPasswordFilters()
-}
-
-func startServer() {
-	router := setupRoutes()
-	router.Run(":3000")
+	go filters.BuildFilters()
+	server.StartServer()
 }
